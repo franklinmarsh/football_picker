@@ -1,0 +1,18 @@
+for i in range(len(NamScore['Anne'])): #loop over the games
+    draw = np.random.uniform(0,1)
+    probwin = -0.026*(smgm[0][i]) + 0.5
+    
+    for name in name_list:
+        if NamScore[name][i] == 1 # if pooler picked favorite
+            if draw <= probwin: # if favorite wins
+                    HoldScore[name].append(fav_pts)
+            elif draw > probwin:
+                     HoldScore[name].append(0)
+                    
+        if NamScore[name][i] == 0 #if pooler picked underdog
+        
+            if draw > probwin: #if underdog wins
+                    HoldScore[name].append(und_pts)
+                
+            elif draw <= probwin:
+                    HoldScore[name].append(0)
